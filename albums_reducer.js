@@ -7,6 +7,12 @@ function reducer(state = initialState, action) {
       // => Ask yourself: what is action.payload?
       return [...state, action.payload];
     }
+    case "REMOVE_ALBUM": {
+      const filteredArray = state.filter((album) => {
+        return album.title !== action.payload;
+      });
+      return filteredArray;
+    }
     default: {
       return state;
     }
